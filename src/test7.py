@@ -50,6 +50,11 @@ class Gun():
         if not self.cartridgeClip:
             self.cartridgeClip = cartridgeClip
 
+# 创建一个罪犯
+class Offender():
+    pass
+
+
 # 创建一个警察
 policeMan = Police("强森")
 
