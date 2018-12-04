@@ -3,6 +3,7 @@ class Police():
     def __init__(self,name):
         self.name = name
         self.bloodVolume = 100
+        self.gun = None
 
     # 警察安装子弹的功能
     def installBullet(self,cartridgeClip,bullet):
@@ -13,6 +14,15 @@ class Police():
     def installCartridgeClip(self,gun,cartridgeClip):
         # 警察把弹夹装到枪上
         gun.connectCartridgeClip(cartridgeClip)
+
+    # 携带枪
+    def toCarryGun(self,newGun):
+        self.gun = newGun
+
+
+    def openFire(self,newOffender):
+        self.gun.shoot(newOffender)
+
 
 # 创建一个弹夹对象
 class CartridgeClip():
@@ -50,9 +60,14 @@ class Gun():
         if not self.cartridgeClip:
             self.cartridgeClip = cartridgeClip
 
+    # 射击
+    def shoot(self,newOffender):
+        pass
+
 # 创建一个罪犯
 class Offender():
-    pass
+    def __init__(self,name):
+        self.name = name
 
 
 # 创建一个警察
@@ -76,3 +91,12 @@ desertEagle = Gun()
 # print(desertEagle)
 desertEagle.connectCartridgeClip(desertEagle,cartridgeClip)
 print(desertEagle)
+
+# 创建一个抢劫犯，屠某某
+robber = Offender('屠某某');
+
+# 携带枪
+policeMan.toCarryGun(desertEagle)
+
+# 开枪射击抢劫犯
+policeMan.openFire(robber)
